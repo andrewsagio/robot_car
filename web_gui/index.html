@@ -1,0 +1,64 @@
+<html>
+<head>
+
+<script Language="Javascript">
+function forward()
+{
+    document.location="forward.move";
+}
+function left()
+{
+    document.location="left.move";
+}
+function right()
+{
+    document.location="right.move";
+}
+
+function reverse()
+{
+    document.location="reverse.move";
+}
+
+function stop()
+{
+    document.location="stop.move";
+}
+
+function setCalibration() {
+    var x = document.getElementById("myRange").value;
+    document.getElementById("calValue").innerHTML=x; 
+	document.location= x + ".cal";
+}
+
+function updateCalValue() {
+    var x = document.getElementById("myRange").value;
+    document.getElementById("calValue").innerHTML=x; 
+}
+
+</script>
+</head>
+
+<body>
+    <div style="text-align:center">
+    <h1>Robot remote control</h1>
+
+    <img src="/images/forward.jpg" id="f" onmousedown="forward()" onmouseup="stop()" ontouchstart = "forward()" ontouchend = "stop()">
+<br>
+    <img src="/images/left.jpg" id="l" onmousedown="left()" onmouseup="stop()">
+    <img src="/images/right.jpg" id="r" onmousedown="right()" onmouseup="stop()">
+<br>
+    <img src="/images/reverse.jpg" id="s" onmousedown="reverse()" onmouseup="stop()">
+<br>
+    <img src="/images/stop.jpg" id="s" onmousedown="stop()">
+<br>
+<h2> calibration </h2>
+<input type="range" id="myRange" value="25", min = "-100", max = "100" onchange="setCalibration()">
+<p id="calValue">xyz</p>
+    </div>
+        <script type="text/javascript">
+            updateCalValue();
+        </script>
+
+</body>
+</html>
